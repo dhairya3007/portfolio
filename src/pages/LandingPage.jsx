@@ -176,7 +176,7 @@ export default function LandingPage() {
               {[
                 { title: 'Face Recognition Attendance', desc: 'AI-powered real-time attendance system using DeepFace and OpenCV.', color: 'from-blue-500 to-cyan-500' },
                 { title: 'Virtual Career Advisor', desc: 'AI-driven career guidance platform using Django and NLP.', color: 'from-violet-500 to-purple-500' },
-                { title: 'Full-Stack Django Web App', desc: 'Cloud-deployed, production-ready backend architecture.', color: 'from-amber-500 to-orange-500', ongoing: true }
+                { title: 'Vault-Bank Web App', desc: 'Cloud-deployed, production-ready backend architecture.', color: 'from-amber-500 to-orange-500', ongoing: true }
               ].map((proj, i) => (
                 <div key={i} className="group relative p-[1px] rounded-2xl bg-gradient-to-br from-slate-700/50 to-slate-800/50 hover:from-slate-500/50 hover:to-slate-600/50 transition-all duration-500">
                   <div className="bg-slate-900/90 backdrop-blur-xl h-full rounded-2xl p-8 relative overflow-hidden flex flex-col justify-end min-h-[250px]">

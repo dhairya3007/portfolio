@@ -45,7 +45,7 @@ const projectsData = [
   },
   {
     id: 5,
-    title: "Full-Stack Django Web Application",
+    title: "Vault-Bank Web App",
     date: "Ongoing",
     shortDesc: "A production-ready full-stack Django web app demonstrating structured backend architecture.",
     description: "This project is a full-stack Django web application developed to demonstrate practical implementation of backend logic, database handling, and responsive frontend design. It is deployed on PythonAnywhere without complex server setup. The application showcases real-world web development concepts including dynamic content rendering, user interaction, and structured backend architecture.",
@@ -180,13 +180,13 @@ export default function Projects() {
                   initial={{ opacity: 0, scale: 0.95, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                  className="bg-slate-800 border border-slate-700 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl pointer-events-auto"
+                  className="bg-slate-800 border border-slate-700 w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-2xl shadow-2xl pointer-events-auto flex flex-col"
                 >
-                  <div className="sticky top-0 bg-slate-800/95 backdrop-blur border-b border-slate-700 p-4 flex justify-between items-center z-10">
-                    <h3 className="text-xl font-bold text-white pr-8">{selectedProject.title}</h3>
+                  <div className="sticky top-0 bg-slate-800/95 backdrop-blur border-b border-slate-700 p-4 md:p-6 flex justify-between items-start z-20">
+                    <h3 className="text-xl md:text-2xl font-bold text-white pr-4">{selectedProject.title}</h3>
                     <button 
                       onClick={() => setSelectedProject(null)}
-                      className="p-2 text-slate-400 hover:text-white bg-slate-700/50 hover:bg-slate-700 rounded-full transition-colors absolute right-4"
+                      className="p-2 text-slate-300 hover:text-white bg-slate-700 hover:bg-red-500 rounded-full transition-colors flex-shrink-0 shadow-lg"
                     >
                       <X size={20} />
                     </button>
@@ -209,18 +209,24 @@ export default function Projects() {
                       ))}
                     </div>
 
-                    {selectedProject.demoLink && (
-                      <div className="border-t border-slate-700 pt-6">
+                    <div className="border-t border-slate-700 pt-6 mt-2 flex flex-wrap gap-4">
+                      {selectedProject.demoLink && (
                         <a 
                           href={selectedProject.demoLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)]"
+                          className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)]"
                         >
                           Visit Live Demo <ExternalLink size={18} />
                         </a>
-                      </div>
-                    )}
+                      )}
+                      <button 
+                        onClick={() => setSelectedProject(null)}
+                        className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-xl transition-all"
+                      >
+                        Close Details
+                      </button>
+                    </div>
                   </div>
                 </motion.div>
               </div>
