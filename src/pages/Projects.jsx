@@ -101,14 +101,16 @@ export default function Projects() {
           <div className="w-24 h-1 bg-blue-500 rounded-full mx-auto md:mx-0"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 gap-10"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {projectsData.map((project, idx) => (
             <motion.div 
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.6 }}
+              variants={itemVariants}
               className="group relative p-[1px] rounded-xl border border-slate-700/50 bg-gradient-to-br from-slate-800/50 to-slate-900/50 hover:border-cyan-500/30 transition-all duration-500 shadow-xl flex flex-col h-full cursor-pointer"
               onClick={() => setSelectedProject(project)}
             >
