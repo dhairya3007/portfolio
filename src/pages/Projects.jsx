@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X, Code } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
@@ -166,74 +167,77 @@ export default function Projects() {
         </div>
 
         {/* Modal */}
-        <AnimatePresence>
-          {selectedProject && (
-            <>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setSelectedProject(null)}
-                className="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[60]"
-              />
-              <div className="fixed inset-0 flex items-center justify-center z-[70] p-4 pointer-events-none">
+        {typeof document !== 'undefined' && createPortal(
+          <AnimatePresence>
+            {selectedProject && (
+              <div className="portal-root">
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                  className="bg-slate-900 border border-cyan-900/50 w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-xl shadow-[0_0_40px_rgba(6,182,212,0.1)] pointer-events-auto flex flex-col"
-                >
-                  <div className="sticky top-0 bg-slate-900/95 backdrop-blur border-b border-cyan-900/50 p-6 md:p-8 flex justify-between items-start z-20">
-                    <h3 className="text-xl md:text-2xl font-bold text-white pr-4">{selectedProject.title}</h3>
-                    <button 
-                      onClick={() => setSelectedProject(null)}
-                      className="p-2 text-slate-300 hover:text-white bg-slate-700 hover:bg-red-500 rounded-full transition-colors flex-shrink-0 shadow-lg"
-                    >
-                      <X size={20} />
-                    </button>
-                  </div>
-                  
-                  <div className="p-6 md:p-8">
-                    <p className="text-cyan-400 font-mono text-sm font-medium mb-6">{selectedProject.date}</p>
-                    
-                    <h4 className="text-lg font-semibold text-white mb-3">Overview</h4>
-                    <p className="text-slate-300 leading-relaxed mb-8">
-                      {selectedProject.description}
-                    </p>
-                    
-                    <h4 className="text-lg font-semibold text-white mb-4">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-2 mb-8">
-                      {selectedProject.techStack.map((tech, i) => (
-                        <span key={i} className="text-sm font-mono font-medium text-cyan-300 bg-cyan-950/40 px-3 py-1.5 rounded border border-cyan-800/50">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="border-t border-cyan-900/30 pt-6 mt-2 flex flex-wrap gap-4">
-                      {selectedProject.demoLink && (
-                        <a 
-                          href={selectedProject.demoLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-medium rounded-lg transition-all shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(6,182,212,0.6)]"
-                        >
-                          Visit Live Demo <ExternalLink size={18} />
-                        </a>
-                      )}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setSelectedProject(null)}
+                  className="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100]"
+                />
+                <div className="fixed inset-0 flex items-center justify-center z-[110] p-4 pointer-events-none">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                    className="bg-slate-900 border border-cyan-900/50 w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-xl shadow-[0_0_40px_rgba(6,182,212,0.1)] pointer-events-auto flex flex-col"
+                  >
+                    <div className="sticky top-0 bg-slate-900/95 backdrop-blur border-b border-cyan-900/50 p-6 md:p-8 flex justify-between items-start z-20">
+                      <h3 className="text-xl md:text-2xl font-bold text-white pr-4">{selectedProject.title}</h3>
                       <button 
                         onClick={() => setSelectedProject(null)}
-                        className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg border border-slate-700 transition-all"
+                        className="p-2 text-slate-300 hover:text-white bg-slate-700 hover:bg-red-500 rounded-full transition-colors flex-shrink-0 shadow-lg"
                       >
-                        Close Details
+                        <X size={20} />
                       </button>
                     </div>
-                  </div>
-                </motion.div>
+                    
+                    <div className="p-6 md:p-8">
+                      <p className="text-cyan-400 font-mono text-sm font-medium mb-6">{selectedProject.date}</p>
+                      
+                      <h4 className="text-lg font-semibold text-white mb-3">Overview</h4>
+                      <p className="text-slate-300 leading-relaxed mb-8">
+                        {selectedProject.description}
+                      </p>
+                      
+                      <h4 className="text-lg font-semibold text-white mb-4">Technologies Used</h4>
+                      <div className="flex flex-wrap gap-2 mb-8">
+                        {selectedProject.techStack.map((tech, i) => (
+                          <span key={i} className="text-sm font-mono font-medium text-cyan-300 bg-cyan-950/40 px-3 py-1.5 rounded border border-cyan-800/50">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="border-t border-cyan-900/30 pt-6 mt-2 flex flex-wrap gap-4">
+                        {selectedProject.demoLink && (
+                          <a 
+                            href={selectedProject.demoLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-medium rounded-lg transition-all shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(6,182,212,0.6)]"
+                          >
+                            Visit Live Demo <ExternalLink size={18} />
+                          </a>
+                        )}
+                        <button 
+                          onClick={() => setSelectedProject(null)}
+                          className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg border border-slate-700 transition-all"
+                        >
+                          Close Details
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
               </div>
-            </>
-          )}
-        </AnimatePresence>
+            )}
+          </AnimatePresence>,
+          document.body
+        )}
       </div>
     </PageTransition>
   );
