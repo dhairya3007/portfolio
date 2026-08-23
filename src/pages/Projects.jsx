@@ -166,7 +166,7 @@ export default function Projects() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Modal */}
         {typeof document !== 'undefined' && createPortal(
