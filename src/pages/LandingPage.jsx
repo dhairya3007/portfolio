@@ -96,7 +96,13 @@ export default function LandingPage() {
         {/* QUICK STATS */}
         <section className="w-full relative z-10 py-12 mt-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-3 gap-6"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               {[
                 { icon: <Code size={28} className="text-cyan-400" />, stat: "3+", label: "Projects Built", color: "from-cyan-500 to-blue-400", bg: "bg-cyan-500/10", border: "border-cyan-500/20" },
                 { icon: <Briefcase size={28} className="text-emerald-400" />, stat: "1", label: "Professional Internship", color: "from-emerald-500 to-teal-400", bg: "bg-emerald-500/10", border: "border-emerald-500/20" },
@@ -104,10 +110,15 @@ export default function LandingPage() {
               ].map((item, idx) => (
                 <motion.div 
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1, duration: 0.5 }}
+                  variants={{
+                    hidden: { opacity: 0, y: 40, scale: 0.9 },
+                    visible: { 
+                      opacity: 1, 
+                      y: 0, 
+                      scale: 1, 
+                      transition: { type: "spring", stiffness: 100, damping: 12 } 
+                    }
+                  }}
                   className="group relative p-[1px] rounded-2xl bg-gradient-to-br from-slate-700/50 to-slate-800/50 hover:from-slate-500/50 hover:to-slate-700/50 transition-all duration-500 shadow-xl"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl blur-xl" style={{ backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }}></div>
