@@ -1,17 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-slate-900: #0a0f1c; /* Even deeper premium dark */
-  --color-slate-800: #131b2f; /* Richer secondary dark */
-  --color-blue-500: #3b82f6;
-  --color-blue-400: #60a5fa;
-  --color-violet-500: #8b5cf6;
-  --color-violet-400: #a78bfa;
-  --color-fuchsia-500: #d946ef;
+  --color-slate-900: #030712; /* Tech/Quant deep dark */
+  --color-slate-800: #111827; /* Richer secondary dark */
+  --color-blue-500: #0ea5e9; /* Sky blue */
+  --color-blue-400: #38bdf8;
+  --color-cyan-500: #06b6d4; /* Tech Cyan */
+  --color-cyan-400: #22d3ee;
+  --color-emerald-500: #10b981; /* Finance/Economics Emerald */
+  --color-emerald-400: #34d399;
   --color-slate-50: #f8fafc;
   --color-slate-400: #94a3b8;
   --font-inter: "Inter", sans-serif;
-  --font-outfit: "Outfit", sans-serif; /* Adding Outfit for headings */
+  --font-outfit: "Outfit", sans-serif; 
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 @layer base {

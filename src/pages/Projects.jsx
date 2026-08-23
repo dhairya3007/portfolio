@@ -51,7 +51,7 @@ const projectsData = [
     description: "This project is a full-stack Django web application developed to demonstrate practical implementation of backend logic, database handling, and responsive frontend design. It is deployed on PythonAnywhere without complex server setup. The application showcases real-world web development concepts including dynamic content rendering, user interaction, and structured backend architecture.",
     techStack: ["Python", "Django", "SQLite", "HTML", "CSS", "JavaScript", "PythonAnywhere"],
     gradient: "from-amber-500/20 to-orange-500/20",
-    demoLink: "https://www.pythonanywhere.com"
+    demoLink: "https://dhairya9898.pythonanywhere.com/login/?next=/"
   }
 ];
 
@@ -108,13 +108,13 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
-              className="group relative p-[1px] rounded-3xl bg-gradient-to-br from-slate-700/50 to-slate-800/50 hover:from-slate-500/50 hover:to-slate-700/50 transition-all duration-500 shadow-2xl flex flex-col h-full cursor-pointer"
+              className="group relative p-[1px] rounded-xl border border-slate-700/50 bg-gradient-to-br from-slate-800/50 to-slate-900/50 hover:border-cyan-500/30 transition-all duration-500 shadow-xl flex flex-col h-full cursor-pointer"
               onClick={() => setSelectedProject(project)}
             >
-              <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-20 transition-opacity duration-700 rounded-3xl blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-700 rounded-xl blur-xl"></div>
               
-              <div className="bg-slate-900/90 backdrop-blur-2xl rounded-3xl p-8 relative overflow-hidden h-full z-10 flex flex-col">
-                <div className={`w-full h-48 rounded-2xl bg-gradient-to-br ${project.gradient} mb-8 overflow-hidden relative group-hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-shadow flex items-center justify-center`}>
+              <div className="bg-slate-900/90 backdrop-blur-2xl rounded-xl p-8 relative overflow-hidden h-full z-10 flex flex-col">
+                <div className={`w-full h-48 rounded-lg bg-gradient-to-br ${project.gradient} mb-8 overflow-hidden relative group-hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] transition-shadow flex items-center justify-center`}>
                   {project.video ? (
                     <video 
                       src={project.video}
@@ -122,7 +122,8 @@ export default function Projects() {
                       loop
                       muted
                       playsInline
-                      className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700 mix-blend-screen group-hover:mix-blend-normal transform group-hover:scale-105 transition-transform"
+                      onCanPlay={(e) => { e.target.playbackRate = 2.0; }}
+                      className="w-full h-full object-cover transition-transform duration-700 transform scale-105 group-hover:scale-110"
                     />
                   ) : (
                     <>
@@ -144,12 +145,12 @@ export default function Projects() {
                 <div className="mt-auto pt-6 border-t border-slate-800/50">
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.techStack.slice(0, 3).map((tech, i) => (
-                      <span key={i} className="text-xs font-semibold text-slate-300 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
+                      <span key={i} className="text-[11px] font-mono font-medium text-cyan-300 bg-cyan-950/30 px-3 py-1.5 rounded border border-cyan-800/50">
                         {tech}
                       </span>
                     ))}
                     {project.techStack.length > 3 && (
-                      <span className="text-xs font-semibold text-slate-400 bg-slate-800/50 px-3 py-1.5 rounded-lg border border-slate-700/50">
+                      <span className="text-[11px] font-mono font-medium text-slate-400 bg-slate-800/50 px-3 py-1.5 rounded border border-slate-700/50">
                         +{project.techStack.length - 3}
                       </span>
                     )}
@@ -180,9 +181,9 @@ export default function Projects() {
                   initial={{ opacity: 0, scale: 0.95, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                  className="bg-slate-800 border border-slate-700 w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-2xl shadow-2xl pointer-events-auto flex flex-col"
+                  className="bg-slate-900 border border-cyan-900/50 w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-xl shadow-[0_0_40px_rgba(6,182,212,0.1)] pointer-events-auto flex flex-col"
                 >
-                  <div className="sticky top-0 bg-slate-800/95 backdrop-blur border-b border-slate-700 p-4 md:p-6 flex justify-between items-start z-20">
+                  <div className="sticky top-0 bg-slate-900/95 backdrop-blur border-b border-cyan-900/50 p-6 md:p-8 flex justify-between items-start z-20">
                     <h3 className="text-xl md:text-2xl font-bold text-white pr-4">{selectedProject.title}</h3>
                     <button 
                       onClick={() => setSelectedProject(null)}
@@ -193,7 +194,7 @@ export default function Projects() {
                   </div>
                   
                   <div className="p-6 md:p-8">
-                    <p className="text-blue-400 font-medium mb-6">{selectedProject.date}</p>
+                    <p className="text-cyan-400 font-mono text-sm font-medium mb-6">{selectedProject.date}</p>
                     
                     <h4 className="text-lg font-semibold text-white mb-3">Overview</h4>
                     <p className="text-slate-300 leading-relaxed mb-8">
@@ -203,26 +204,26 @@ export default function Projects() {
                     <h4 className="text-lg font-semibold text-white mb-4">Technologies Used</h4>
                     <div className="flex flex-wrap gap-2 mb-8">
                       {selectedProject.techStack.map((tech, i) => (
-                        <span key={i} className="text-sm font-medium text-blue-300 bg-blue-900/30 px-3 py-1.5 rounded-lg border border-blue-700/50">
+                        <span key={i} className="text-sm font-mono font-medium text-cyan-300 bg-cyan-950/40 px-3 py-1.5 rounded border border-cyan-800/50">
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    <div className="border-t border-slate-700 pt-6 mt-2 flex flex-wrap gap-4">
+                    <div className="border-t border-cyan-900/30 pt-6 mt-2 flex flex-wrap gap-4">
                       {selectedProject.demoLink && (
                         <a 
                           href={selectedProject.demoLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)]"
+                          className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-medium rounded-lg transition-all shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(6,182,212,0.6)]"
                         >
                           Visit Live Demo <ExternalLink size={18} />
                         </a>
                       )}
                       <button 
                         onClick={() => setSelectedProject(null)}
-                        className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-xl transition-all"
+                        className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg border border-slate-700 transition-all"
                       >
                         Close Details
                       </button>

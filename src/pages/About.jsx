@@ -25,10 +25,8 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-full lg:w-1/3 flex justify-center lg:justify-start"
           >
-            <div className="w-64 h-64 md:w-80 md:h-80 relative">
-              <div className="absolute inset-0 border-2 border-slate-700 rounded-full -m-4 scale-105 animate-[spin_10s_linear_infinite]"></div>
-              <div className="absolute inset-0 border-2 border-dashed border-blue-500/30 rounded-full -m-8 scale-110 animate-[spin_15s_linear_infinite_reverse]"></div>
-              <Avatar className="w-full h-full" />
+            <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              <Avatar />
             </div>
           </motion.div>
 
@@ -40,11 +38,28 @@ export default function About() {
             className="w-full lg:w-2/3"
           >
             <div className="prose prose-invert max-w-none">
-              <p className="text-slate-300 text-lg leading-relaxed mb-8">
-                I am a final-year B.Tech Information Technology student at Madhuben and Bhanubhai Patel Institute of Technology (MBIT), Anand, Gujarat (2022–2026), with a CGPA of 8.09/10. I specialize in building scalable, real-world software solutions using Python, Django, and AI/ML technologies.
+              <p className="text-slate-300 text-lg leading-relaxed mb-6 text-justify">
+                🎓 I am a recent B.Tech graduate in Information Technology from Madhuben & Bhanubhai Patel Institute of Technology (MBIT), Anand, Gujarat (2022–2026), with a CGPA of 8.09/10.
               </p>
-              <p className="text-slate-300 text-lg leading-relaxed mb-8">
-                I have professional experience as a Software Developer Intern at OM INFOSOLUTION INC, where I developed and maintained SaaS application features, designed MySQL/PostgreSQL database schemas, built RESTful APIs, and collaborated using Git/GitHub. I am passionate about AI-powered systems, clean code, and solving real-world problems through technology.
+              <p className="text-slate-300 text-lg leading-relaxed mb-6 text-justify">
+                I specialize in developing scalable and efficient software solutions using Python and Django, with a strong focus on integrating AI/ML into real-world applications. My experience includes building SaaS platforms, designing robust backend systems, and implementing intelligent, data-driven features.
+              </p>
+              <p className="text-slate-300 text-lg leading-relaxed mb-6 text-justify">
+                💼 I have professional experience as a Software Developer Intern at OM INFOSOLUTION INC, where I contributed to the development and maintenance of SaaS applications. My work involved designing MySQL/PostgreSQL database schemas, building RESTful APIs, and collaborating effectively using Git and GitHub.
+              </p>
+              
+              <div className="mb-6">
+                <p className="text-slate-200 text-lg font-semibold mb-3">Core competencies:</p>
+                <ul className="text-slate-300 text-lg leading-relaxed space-y-2 list-none p-0 m-0">
+                  <li className="flex items-center gap-2"><span className="text-emerald-500">•</span> Backend Development & System Design</li>
+                  <li className="flex items-center gap-2"><span className="text-emerald-500">•</span> Scalable SaaS Architecture</li>
+                  <li className="flex items-center gap-2"><span className="text-emerald-500">•</span> AI/ML Integration</li>
+                  <li className="flex items-center gap-2"><span className="text-emerald-500">•</span> Database Management & API Development</li>
+                </ul>
+              </div>
+              
+              <p className="text-slate-300 text-lg leading-relaxed mb-8 text-justify">
+                I am passionate about building AI-powered systems, writing clean and maintainable code, and solving real-world problems through technology. I am currently seeking opportunities to contribute to innovative projects and grow within a dynamic development environment.
               </p>
             </div>
 
@@ -56,7 +71,7 @@ export default function About() {
                   <p className="text-slate-200 font-medium">Anand, Gujarat, India</p>
                 </div>
               </div>
-              
+
               <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700 flex items-center gap-4">
                 <Mail className="text-violet-400" size={24} />
                 <div>

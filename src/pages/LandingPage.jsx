@@ -36,7 +36,7 @@ export default function LandingPage() {
             initial="hidden"
             animate="visible"
           >
-            <motion.div variants={itemVariants} className="inline-block mb-4 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm font-semibold tracking-wide">
+            <motion.div variants={itemVariants} className="inline-block mb-4 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-sm font-mono font-semibold tracking-wide">
               Available for New Opportunities
             </motion.div>
             
@@ -45,14 +45,14 @@ export default function LandingPage() {
               className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6"
             >
               Hi, I'm <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-fuchsia-400 animate-gradient-xy">Dhairya Patel</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 animate-gradient-xy">Dhairya Patel</span>
             </motion.h1>
             
             <motion.h2 
               variants={itemVariants}
               className="text-xl md:text-2xl font-medium text-slate-300 mb-6"
             >
-              Software Developer <span className="text-blue-500 mx-2">•</span> AI/ML Enthusiast <span className="text-violet-500 mx-2">•</span> Full-Stack
+              Software Developer <span className="text-cyan-500 mx-2">•</span> AI/ML Enthusiast <span className="text-emerald-500 mx-2">•</span> Full-Stack
             </motion.h2>
             
             <motion.p 
@@ -68,13 +68,13 @@ export default function LandingPage() {
             >
               <Link 
                 to="/projects" 
-                className="px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] flex items-center justify-center gap-2 group"
+                className="px-8 py-4 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-medium transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] flex items-center justify-center gap-2 group"
               >
                 View My Work <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link 
                 to="/contact" 
-                className="px-8 py-4 rounded-xl glass-card text-white font-medium flex items-center justify-center"
+                className="px-8 py-4 rounded-lg glass-card text-white font-medium flex items-center justify-center border border-cyan-900/30 hover:border-cyan-700/50"
               >
                 Contact Me
               </Link>
@@ -98,8 +98,8 @@ export default function LandingPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { icon: <Code size={28} className="text-blue-400" />, stat: "3+", label: "Projects Built", color: "from-blue-500 to-cyan-400", bg: "bg-blue-500/10", border: "border-blue-500/20" },
-                { icon: <Briefcase size={28} className="text-violet-400" />, stat: "1", label: "Professional Internship", color: "from-violet-500 to-fuchsia-400", bg: "bg-violet-500/10", border: "border-violet-500/20" },
+                { icon: <Code size={28} className="text-cyan-400" />, stat: "3+", label: "Projects Built", color: "from-cyan-500 to-blue-400", bg: "bg-cyan-500/10", border: "border-cyan-500/20" },
+                { icon: <Briefcase size={28} className="text-emerald-400" />, stat: "1", label: "Professional Internship", color: "from-emerald-500 to-teal-400", bg: "bg-emerald-500/10", border: "border-emerald-500/20" },
                 { icon: <GraduationCap size={28} className="text-emerald-400" />, stat: "8.09", label: "CGPA", color: "from-emerald-400 to-teal-400", bg: "bg-emerald-500/10", border: "border-emerald-500/20" }
               ].map((item, idx) => (
                 <motion.div 

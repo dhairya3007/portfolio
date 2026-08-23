@@ -36,9 +36,10 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <NavLink to="/" className="text-2xl font-outfit font-bold tracking-tighter text-slate-50 flex items-center">
-            <motion.div layoutId="brand-logo" className="flex">
-              Dhairya<span className="text-blue-500">.</span>
+          <NavLink to="/" className="text-2xl font-outfit font-bold tracking-tighter text-slate-50 flex items-center group">
+            <motion.div layoutId="brand-logo" className="flex items-center">
+              <span className="text-cyan-500 font-mono mr-2 opacity-70 group-hover:opacity-100 transition-opacity">{">_"}</span>
+              Dhairya<span className="text-cyan-500">.</span>
             </motion.div>
           </NavLink>
 
@@ -51,7 +52,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive
-                      ? 'text-blue-500 bg-slate-800/50'
+                      ? 'text-cyan-400 bg-slate-800/50 font-mono'
                       : 'text-slate-300 hover:text-white hover:bg-slate-800'
                   }`
                 }

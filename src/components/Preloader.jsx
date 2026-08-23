@@ -39,11 +39,13 @@ export default function Preloader() {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
     >
-      {/* Gradient Mesh / Animated Background for Preloader */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-50">
-        <div className="absolute top-[20%] left-[20%] w-[40%] h-[40%] rounded-full bg-blue-600/20 blur-[100px] mix-blend-screen animate-float-slow"></div>
-        <div className="absolute top-[30%] right-[20%] w-[35%] h-[35%] rounded-full bg-violet-600/20 blur-[100px] mix-blend-screen animate-float-slow" style={{ animationDelay: '1.5s' }}></div>
-        <div className="absolute bottom-[20%] left-[40%] w-[45%] h-[45%] rounded-full bg-fuchsia-600/20 blur-[100px] mix-blend-screen animate-float-slow" style={{ animationDelay: '3s' }}></div>
+      {/* Tech Grid / Animated Background for Preloader */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-30" style={{
+        backgroundImage: `linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)`,
+        backgroundSize: '40px 40px'
+      }}>
+        <div className="absolute top-[20%] left-[20%] w-[40%] h-[40%] rounded-full bg-cyan-600/20 blur-[100px] mix-blend-screen animate-float-slow"></div>
+        <div className="absolute top-[30%] right-[20%] w-[35%] h-[35%] rounded-full bg-emerald-600/20 blur-[100px] mix-blend-screen animate-float-slow" style={{ animationDelay: '1.5s' }}></div>
       </div>
 
       <motion.div
@@ -53,6 +55,9 @@ export default function Preloader() {
         initial="hidden"
         animate="visible"
       >
+        <motion.span variants={child} className="text-cyan-500 font-mono mr-4 opacity-80 inline-block">
+          {">_"}
+        </motion.span>
         {letters.map((letter, index) => (
           <motion.span variants={child} key={index} className="inline-block">
             {letter}
@@ -60,7 +65,7 @@ export default function Preloader() {
         ))}
         <motion.span
           variants={child}
-          className="text-blue-500 inline-block"
+          className="text-cyan-500 inline-block"
         >
           .
         </motion.span>

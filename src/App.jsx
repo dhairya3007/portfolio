@@ -20,6 +20,10 @@ import Contact from './pages/Contact';
 function AnimatedRoutes() {
   const location = useLocation();
   
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
@@ -55,11 +59,13 @@ function App() {
             {loading && <Preloader key="preloader" />}
           </AnimatePresence>
 
-          {/* Animated Background Mesh */}
-          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-600/10 blur-[120px] mix-blend-screen animate-float-slow"></div>
-            <div className="absolute top-[40%] right-[-10%] w-[40%] h-[50%] rounded-full bg-violet-600/10 blur-[120px] mix-blend-screen animate-float-slow" style={{ animationDelay: '2s' }}></div>
-            <div className="absolute bottom-[-10%] left-[20%] w-[50%] h-[40%] rounded-full bg-fuchsia-600/10 blur-[120px] mix-blend-screen animate-float-slow" style={{ animationDelay: '4s' }}></div>
+          {/* Tech/Quant Grid Background */}
+          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{
+            backgroundImage: `linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}>
+            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-cyan-600/15 blur-[120px] mix-blend-screen animate-float-slow"></div>
+            <div className="absolute top-[40%] right-[-10%] w-[40%] h-[50%] rounded-full bg-emerald-600/15 blur-[120px] mix-blend-screen animate-float-slow" style={{ animationDelay: '2s' }}></div>
           </div>
 
           {!loading && (
