@@ -214,20 +214,20 @@ export default function Projects() {
                         ))}
                       </div>
 
-                      <div className="border-t border-cyan-900/30 pt-6 mt-2 flex flex-wrap gap-4">
+                      <div className="border-t border-cyan-900/30 pt-6 mt-2 flex flex-col sm:flex-row sm:justify-end gap-4">
                         {selectedProject.demoLink && (
                           <a 
                             href={selectedProject.demoLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-medium rounded-lg transition-all shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(6,182,212,0.6)]"
+                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-medium rounded-lg transition-all shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(6,182,212,0.6)]"
                           >
                             Visit Live Demo <ExternalLink size={18} />
                           </a>
                         )}
                         <button 
                           onClick={() => setSelectedProject(null)}
-                          className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg border border-slate-700 transition-all"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg border border-slate-700 transition-all"
                         >
                           Close Details
                         </button>
