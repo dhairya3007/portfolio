@@ -21,7 +21,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('submitting');
-    
+
     try {
       const response = await fetch("https://formspree.io/f/xgawqlde", {
         method: "POST",
@@ -36,7 +36,7 @@ export default function Contact() {
           message: formData.message,
         }),
       });
-      
+
       if (response.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
@@ -69,7 +69,7 @@ export default function Contact() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-          
+
           {/* Contact Info (Left) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -80,7 +80,7 @@ export default function Contact() {
             <div className="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 h-full flex flex-col justify-between">
               <div>
                 <h3 className="text-2xl font-bold text-white mb-8">Contact Information</h3>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-blue-500/10 rounded-lg text-blue-400 mt-1">
@@ -93,7 +93,7 @@ export default function Contact() {
                       </a>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-blue-500/10 rounded-lg text-blue-400 mt-1">
                       <Phone size={24} />
@@ -112,10 +112,10 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-slate-400 mb-1">Location</p>
-                      <a 
-                        href="https://maps.google.com/?q=Anand,+Gujarat,+India" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <a
+                        href="https://maps.google.com/?q=Anand,+Gujarat,+India"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-white hover:text-blue-400 transition-colors font-medium flex items-center gap-1"
                       >
                         Anand, Gujarat, India
@@ -135,10 +135,10 @@ export default function Contact() {
                     <GithubIcon className="w-5 h-5" />
                   </a>
                 </div>
-                
-                <a 
-                  href="/resume.pdf" 
-                  download 
+
+                <a
+                  href="/Dhairya_Patel_Resume.pdf"
+                  download
                   className="mt-8 flex items-center justify-center gap-2 w-full py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors font-medium border border-slate-600 hover:border-slate-500"
                 >
                   <Download size={18} /> Download Resume
@@ -155,13 +155,13 @@ export default function Contact() {
             className="lg:col-span-3"
           >
             <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-xl relative overflow-hidden">
-              
+
               {/* Notifications */}
               <AnimatePresence>
                 {status === 'success' && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: -20 }} 
-                    animate={{ opacity: 1, y: 0 }} 
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     className="absolute top-0 left-0 right-0 bg-green-500/90 text-white p-4 flex items-center justify-center gap-2 z-10 backdrop-blur-sm"
                   >
@@ -169,9 +169,9 @@ export default function Contact() {
                   </motion.div>
                 )}
                 {status === 'error' && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: -20 }} 
-                    animate={{ opacity: 1, y: 0 }} 
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     className="absolute top-0 left-0 right-0 bg-red-500/90 text-white p-4 flex items-center justify-center gap-2 z-10 backdrop-blur-sm"
                   >
@@ -181,18 +181,18 @@ export default function Contact() {
               </AnimatePresence>
 
               <h3 className="text-2xl font-bold text-white mb-6">Send Me a Message</h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6 relative z-0">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
                     className="space-y-2"
                   >
                     <label htmlFor="name" className="block text-sm font-medium text-slate-300">Your Name *</label>
-                    <input 
-                      type="text" 
-                      id="name" 
-                      name="name" 
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
                       required
                       value={formData.name}
                       onChange={handleChange}
@@ -200,15 +200,15 @@ export default function Contact() {
                       placeholder="John Doe"
                     />
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
                     className="space-y-2"
                   >
                     <label htmlFor="email" className="block text-sm font-medium text-slate-300">Your Email *</label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      name="email" 
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
                       required
                       value={formData.email}
                       onChange={handleChange}
@@ -218,14 +218,14 @@ export default function Contact() {
                   </motion.div>
                 </div>
 
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
                   className="space-y-2"
                 >
                   <label htmlFor="subject" className="block text-sm font-medium text-slate-300">Subject</label>
-                  <input 
-                    type="text" 
-                    id="subject" 
+                  <input
+                    type="text"
+                    id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
@@ -234,14 +234,14 @@ export default function Contact() {
                   />
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}
                   className="space-y-2"
                 >
                   <label htmlFor="message" className="block text-sm font-medium text-slate-300">Message *</label>
-                  <textarea 
-                    id="message" 
-                    name="message" 
+                  <textarea
+                    id="message"
+                    name="message"
                     required
                     rows="5"
                     value={formData.message}
@@ -251,9 +251,9 @@ export default function Contact() {
                   ></textarea>
                 </motion.div>
 
-                <motion.button 
+                <motion.button
                   initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
-                  type="submit" 
+                  type="submit"
                   disabled={status === 'submitting'}
                   className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(37,99,235,0.4)] disabled:opacity-70 disabled:cursor-not-allowed"
                 >
